@@ -1,0 +1,239 @@
+
+.stats-section {
+  position: relative;
+  width: 100%;
+  padding: 90px 6% 100px;
+  overflow: hidden;
+  background: #0b0d12;
+  color: #f4f7ff;
+}
+
+.stats-heading {
+  max-width: 700px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.stats-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #a3ffcb;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.stats-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+}
+
+.stats-heading h2 span {
+  color: #60a5fa;
+}
+
+.stats-heading p {
+  margin: 14px 0 0;
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  --card-index: 0;
+
+  position: relative;
+  min-height: 205px;
+  padding: 27px 25px;
+  overflow: hidden;
+  border: 1px solid rgba(161, 161, 170, 0.15);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(23, 27, 38, 0.95),
+    rgba(13, 16, 25, 0.96)
+  );
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+  animation: stat-card-enter 0.65s ease both;
+  animation-delay: calc(var(--card-index) * 120ms);
+}
+
+.stat-card::before {
+  position: absolute;
+  top: -65px;
+  right: -55px;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  filter: blur(35px);
+  content: "";
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(96, 165, 250, 0.65);
+  background: linear-gradient(
+    145deg,
+    rgba(27, 38, 59, 0.98),
+    rgba(15, 19, 30, 0.98)
+  );
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(59, 130, 246, 0.09);
+}
+
+.stat-card:hover::before {
+  transform: scale(1.35);
+  background: rgba(96, 165, 250, 0.2);
+}
+
+.stat-index {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  color: #71717a;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.stat-number {
+  position: relative;
+  margin-bottom: 13px;
+  color: #60a5fa;
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+  transform: translateX(4px);
+  color: #a3ffcb;
+}
+
+.stat-title {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  color: #f4f7ff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stat-title::after {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  background: #a3ffcb;
+  transform: scaleX(0);
+  transform-origin: left;
+  content: "";
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-title {
+  color: #a3ffcb;
+  transform: translateY(-2px);
+}
+
+.stat-card:hover .stat-title::after {
+  transform: scaleX(1);
+}
+
+.stat-detail {
+  position: relative;
+  margin: 12px 0 0;
+  color: #a1a1aa;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.stat-card-line {
+  position: absolute;
+  right: 25px;
+  bottom: 0;
+  left: 25px;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #a3ffcb);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.stat-card:hover .stat-card-line {
+  transform: scaleX(1);
+}
+
+.stats-section:not(.stats-visible) .stat-card {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.stats-section.stats-visible .stat-card {
+  opacity: 1;
+}
+
+@keyframes stat-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 650px) {
+  .stats-section {
+    padding: 65px 5% 75px;
+  }
+
+  .stats-heading {
+    margin-bottom: 30px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 430px;
+  }
+
+  .stat-card {
+    min-height: 175px;
+    padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card,
+  .stat-number,
+  .stat-title,
+  .stat-title::after,
+  .stat-card-line,
+  .stat-card::before {
+    animation: none;
+    transition: none;
+  }
+}

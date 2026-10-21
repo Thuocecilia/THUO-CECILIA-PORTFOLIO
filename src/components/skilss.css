@@ -1,0 +1,671 @@
+
+/* =========================================
+   SPLIT SCREEN: FIXED SIDEBAR + SKILLS
+========================================= */
+
+.hero-skills-container {
+  display: grid;
+  grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(2rem, 4vw, 4rem);
+
+  width: 100%;
+  max-width: 1500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem clamp(1.5rem, 3vw, 3rem);
+
+  color: #FFFFFF;
+  background: transparent;
+  scroll-margin-top: 110px;
+}
+
+/* =========================================
+   LEFT SIDEBAR — FIXED
+========================================= */
+
+.profile-aside {
+  position: fixed;
+  top: 110px;
+  left: max(2rem, calc((100vw - 1500px) / 2 + 3rem));
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+
+  width: min(350px, calc(30vw - 2rem));
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+
+  padding: 1.5rem 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  scrollbar-width: thin;
+  scrollbar-color: #343D50 transparent;
+}
+
+/* Keep the right section clear of the fixed sidebar. */
+
+.skills-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  min-width: 0;
+  min-height: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   PROFILE IMAGE
+========================================= */
+
+.avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.profile-avatar {
+  display: block;
+  width: 132px;
+  height: 132px;
+
+  border: 3px solid #60A5FA;
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center;
+
+  box-shadow: none;
+}
+
+.role-badge {
+  color: #A3FFCB;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+.profile-kicker {
+  margin: 0;
+  color: #60A5FA;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   PROFILE TEXT
+========================================= */
+
+.hero-title {
+  margin: 0;
+  color: #FFFFFF;
+
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+.highlight-name {
+  color: #60A5FA;
+}
+
+.hero-bio {
+  margin: 0;
+  color: #A1A1AA;
+
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.profile-focus {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+
+  width: 100%;
+  padding: 0.9rem;
+
+  color: #D4D9E3;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.focus-indicator {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  margin-top: 4px;
+
+  background: #A3FFCB;
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+/* =========================================
+   PROFILE BUTTONS
+========================================= */
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-primary {
+  color: #FFFFFF;
+  background: #3B82F6;
+  border: 1px solid #3B82F6;
+}
+
+.btn-primary:hover {
+  color: #0B0D12;
+  background: #60A5FA;
+  border-color: #60A5FA;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  color: #FFFFFF;
+  background: transparent;
+  border: 1px solid #343D50;
+}
+
+.btn-secondary:hover {
+  color: #A3FFCB;
+  border-color: #A3FFCB;
+  transform: translateY(-2px);
+}
+
+.profile-footer {
+  margin: 0.5rem 0 0;
+  color: #687386;
+
+  font-size: 0.59rem;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   RIGHT SKILLS SECTION
+========================================= */
+
+.skills-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: 0 0 2rem;
+  text-align: center;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.skills-eyebrow {
+  display: block;
+  margin: 0;
+
+  color: #60A5FA;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+/* Remove additional heading copy and decorative text. */
+
+.skills-heading h2,
+.skills-heading p {
+  display: none;
+}
+
+/* =========================================
+   ALTERNATING SKILLS TIMELINE
+========================================= */
+
+.skills-timeline-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0.5rem 0;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.straight-timeline-line {
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 50%;
+
+  width: 2px;
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #3B82F688 15%,
+    #A3FFCB88 50%,
+    #3B82F688 85%,
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+.skill-card-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.row-left {
+  justify-content: flex-start;
+}
+
+.row-right {
+  justify-content: flex-end;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  z-index: 2;
+
+  width: 13px;
+  height: 13px;
+
+  border: 3px solid #0B0D12;
+  border-radius: 50%;
+  transform: translateX(-50%);
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.timeline-dot.theme-blue {
+  background: #60A5FA;
+  box-shadow: 0 0 0 2px #3B82F655;
+}
+
+.timeline-dot.theme-mint {
+  background: #A3FFCB;
+  box-shadow: 0 0 0 2px #A3FFCB55;
+}
+
+.timeline-dot.dot-active {
+  transform: translateX(-50%) scale(1.3);
+}
+
+/* =========================================
+   SKILL CARDS — KEEP THEIR BORDERS
+========================================= */
+
+.skill-box {
+  appearance: none;
+  position: relative;
+  z-index: 1;
+
+  width: 45%;
+  min-width: 0;
+  padding: 1.5rem;
+
+  color: #FFFFFF;
+  text-align: left;
+  font: inherit;
+
+  /* Individual card backgrounds remain translucent. */
+  background: rgba(23, 27, 38, 0.48);
+  border: 1px solid #2A3345;
+  border-radius: 18px;
+
+  cursor: pointer;
+  box-shadow: none;
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.skill-box:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+.skill-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.skill-category-badge {
+  color: #A1A1AA;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  line-height: 1.7;
+}
+
+.skill-number {
+  color: #687386;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.skill-title {
+  margin: 1rem 0;
+
+  color: #FFFFFF;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  line-height: 1.4;
+  font-weight: 850;
+
+  transition: color 0.25s ease;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin: 0 0 1.1rem;
+  padding: 0;
+
+  list-style: none;
+}
+
+.skills-list li {
+  padding: 0.4rem 0.6rem;
+
+  color: #C4CBD7;
+  background: rgba(11, 13, 18, 0.65);
+  border: 1px solid #2A3345;
+  border-radius: 7px;
+
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.skill-description {
+  display: block;
+  color: #A1A1AA;
+
+  font-size: 0.82rem;
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
+}
+
+.click-hint {
+  display: inline-block;
+  margin-top: 1.2rem;
+
+  color: #8792A6;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* =========================================
+   BLUE CARD HOVER
+========================================= */
+
+.theme-blue:hover,
+.theme-blue.expanded {
+  background: rgba(23, 36, 58, 0.65);
+  border-color: #3B82F6;
+  box-shadow: none;
+  transform: translateY(-4px);
+}
+
+.theme-blue:hover .skill-title,
+.theme-blue.expanded .skill-title,
+.theme-blue:hover .click-hint,
+.theme-blue.expanded .click-hint {
+  color: #60A5FA;
+}
+
+/* =========================================
+   MINT CARD HOVER
+========================================= */
+
+.theme-mint:hover,
+.theme-mint.expanded {
+  background: rgba(23, 42, 40, 0.65);
+  border-color: #A3FFCB;
+  box-shadow: none;
+  transform: translateY(-4px);
+}
+
+.theme-mint:hover .skill-title,
+.theme-mint.expanded .skill-title,
+.theme-mint:hover .click-hint,
+.theme-mint.expanded .click-hint {
+  color: #A3FFCB;
+}
+
+/* =========================================
+   MEDIUM SCREENS
+========================================= */
+
+@media (max-width: 1000px) {
+  .hero-skills-container {
+    grid-template-columns: minmax(230px, 290px) minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .profile-aside {
+    left: 1.5rem;
+    width: 260px;
+  }
+
+  .skill-box {
+    width: 46%;
+    padding: 1rem;
+  }
+
+  .skill-category-badge {
+    letter-spacing: 0.8px;
+  }
+}
+
+/* =========================================
+   MOBILE — STACK SIDEBAR AND SKILLS
+========================================= */
+
+@media (max-width: 760px) {
+  .hero-skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .profile-aside {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+
+    padding: 1.5rem 0;
+  }
+
+  .avatar-wrapper {
+    align-items: flex-start;
+  }
+
+  .skills-content {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .skills-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .straight-timeline-line {
+    left: 9px;
+  }
+
+  .timeline-dot {
+    left: 9px;
+  }
+
+  .skill-card-row,
+  .row-left,
+  .row-right {
+    justify-content: flex-end;
+  }
+
+  .skill-box {
+    width: calc(100% - 35px);
+    padding: 1.2rem;
+  }
+
+  .skills-timeline-wrapper {
+    gap: 1.5rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .hero-skills-container {
+    padding: 0.75rem;
+  }
+
+  .profile-avatar {
+    width: 112px;
+    height: 112px;
+  }
+
+  .skill-box {
+    padding: 1rem;
+  }
+
+  .skills-list li {
+    font-size: 0.66rem;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-box,
+  .btn-primary,
+  .btn-secondary,
+  .timeline-dot {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
